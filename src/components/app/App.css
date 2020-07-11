@@ -1,0 +1,19 @@
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.app > header {
+  padding: var(--padding-normal);
+}
+
+.app > main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+  grid-gap: 1ch;
+}
+
+.app > footer {
+  padding: var(--padding-normal);
+}
