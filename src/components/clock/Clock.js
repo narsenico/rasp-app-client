@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useInterval, longDate, longTime } from '../../utility';
+import { useInterval, longDate, longTime, shortDate } from '../../utility';
 
 import './Clock.css';
 
@@ -11,7 +11,7 @@ function Clock() {
     const [time, setTime] = useState();
 
     useInterval(() => {
-        setDate(longDate());
+        setDate(shortDate());
         setTime(longTime());
     }, 1000, 1000);
 

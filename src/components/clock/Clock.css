@@ -1,4 +1,26 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap";
+
 .clock {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+    font-size: 4em;
+}
+
+.clock > div {
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 450px) {
+    .clock {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .clock {
+        font-size: 2em;
+    }
 }
