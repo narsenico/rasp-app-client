@@ -11,12 +11,8 @@ function App() {
         <Clock />
       </header>
       <main>
-        <div>
           <WasteCollection />
-        </div>
-        <div>
           <Weather />
-        </div>
       </main>
       <footer>
         <Calendar />

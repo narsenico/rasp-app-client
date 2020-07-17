@@ -1,34 +1,55 @@
-@import "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap";
+@import 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap';
 
 :root {
-  --background-clor: #282c34;
-  --text-color: #fafafa;
+    --background-clor: #282c34;
+    --text-color: #fafafa;
+    --border-internal-color: #66696f;
 
-  --padding-normal: 8px;
+    --padding-normal: 8px;
+    --font-size: 16px;
 }
 
 body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  background-color: var(--background-clor);
-  color: var(--text-color);
+    font-size: var(--font-size);
+    background-color: var(--background-clor);
+    color: var(--text-color);
+}
+
+.text-2x {
+    font-size: 2em;
+}
+
+.text-3x {
+    font-size: 2em;
 }
 
 .text-uppercase {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .text-left {
-  text-align: left;
+    text-align: left;
 }
 
 .text-right {
-  text-align: right;
+    text-align: right;
 }
 
 .text-center {
-  text-align: center;
+    text-align: center;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.place-center {
+    place-self: center;
 }

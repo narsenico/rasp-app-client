@@ -38,8 +38,16 @@ export const formatDate = (date, format) => {
     return dfFormat(date, format, { locale: it });
 };
 
+export const shortTime = (date = Date.now()) => {
+    return formatDate(date, 'HH:mm');
+};
+
 export const longTime = (date = Date.now()) => {
     return formatDate(date, 'HH:mm:ss');
+};
+
+export const shortDate = (date = Date.now()) => {
+    return formatDate(date, 'EEE, dd MMM');
 };
 
 export const longDate = (date = Date.now()) => {
