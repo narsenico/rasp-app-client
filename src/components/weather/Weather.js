@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-import { getIconClassName } from './WeatherIconsHelper';
+import { getHourlyIconClassName } from './WeatherIconsHelper';
 import { useInterval, shortTime } from '../../utility';
 
 import './Weather.css';
@@ -13,7 +13,6 @@ const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
  * TODO: ogni quanto deve aggiornarsi? basta una volta al giorno?
  */
 function Weather() {
-    const WeatherIcon = useRef();
     const [forecast, setForecast] = useState();
 
     useInterval(
@@ -22,7 +21,27 @@ function Weather() {
                 const res = await axios.get(
                     `${SERVER_BASE_URL}/weather/forecast`
                 );
-                setForecast(res.data);
+                const { sunrise, sunset, hourly } = res.data;
+                // considero il primo elemento di hourly come il meteo corente
+                // poi prendo i successivi 4 elementi
+                setForecast({
+                    current: {
+                        description: hourly[0].weather[0].description,
+                        icon: getHourlyIconClassName(
+                            hourly[0],
+                            sunrise,
+                            sunset
+                        ),
+                    },
+                    items: hourly.slice(1, 5).map((hour) => ({
+                        time: shortTime(new Date(hour.date)),
+                        icon: getHourlyIconClassName(
+                            hour,
+                            sunrise,
+                            sunset
+                        ),
+                    })),
+                });
                 // TODO: mostrare la situazione peggiore da adesso alle prox 3 ore
             } catch (e) {
                 console.error(e);
@@ -35,27 +54,19 @@ function Weather() {
 
     return (
         <div className="weather">
-            {forecast && forecast.hourly && forecast.hourly.length > 0 ? (
+            {forecast ? (
                 <>
                     <div className="weather-description text-center place-center text-uppercase text-ellipsis text-2x">
-                        {forecast.hourly[0].weather[0].description}
+                        {forecast.current.description}
                     </div>
                     <div className="weather-main place-center">
-                        <i
-                            className={getIconClassName(
-                                forecast.hourly[0].weather[0].id
-                            )}
-                        ></i>
+                        <i className={forecast.current.icon}></i>
                     </div>
                     <div className="weather-items">
-                        {forecast.hourly.slice(1, 5).map((hour, index) => (
+                        {forecast.items.map((item, index) => (
                             <div key={index}>
-                                <div>{shortTime(new Date(hour.date))}</div>
-                                <i
-                                    className={getIconClassName(
-                                        hour.weather[0].id
-                                    )}
-                                ></i>
+                                <div>{item.time}</div>
+                                <i className={item.icon}></i>
                             </div>
                         ))}
                     </div>
