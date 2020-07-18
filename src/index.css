@@ -20,6 +20,16 @@ body {
     color: var(--text-color);
 }
 
+.box {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.box-header {
+    padding: var(--padding-normal);
+    width: 100%;
+}
+
 .text-2x {
     font-size: 2em;
 }
