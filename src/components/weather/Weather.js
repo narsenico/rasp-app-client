@@ -53,13 +53,13 @@ function Weather() {
     );
 
     return (
-        <div className="weather">
+        <div className="weather box">
             {forecast ? (
                 <>
-                    <div className="weather-description text-center place-center text-uppercase text-ellipsis text-2x">
+                    <div className="weather-description box-header text-center place-center text-uppercase text-ellipsis text-2x">
                         {forecast.current.description}
                     </div>
-                    <div className="weather-main place-center">
+                    <div className="weather-icon place-center">
                         <i className={forecast.current.icon}></i>
                     </div>
                     <div className="weather-items">

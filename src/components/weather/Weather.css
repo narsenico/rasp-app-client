@@ -1,15 +1,6 @@
 @import './icons/css/weather-icons.css';
 
-.weather {
-    display: grid;
-    grid-template-rows: auto;
-}
-
-.weather-description {
-    width: 100%;
-}
-
-.weather-main {
+.weather-icon {
     font-size: 20vmin;
 }
 
