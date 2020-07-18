@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useInterval, longDate, longTime, shortDate } from '../../utility';
+import { useInterval, longTime, shortDate } from '../../utility';
 
 import './Clock.css';
 
