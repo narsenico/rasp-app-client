@@ -1,5 +1,9 @@
 @import './icons/css/weather-icons.css';
 
+.weather-description {
+    border: solid 1px var(--border-internal-color);
+}
+
 .weather-icon {
     font-size: 20vmin;
 }
