@@ -1,0 +1,59 @@
+.waste-collection-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+}
+
+.waste-collection-items > div {
+    text-align: center;
+    box-sizing: border-box;
+    border: solid 1px var(--border-internal-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.waste-collection-descr {
+    flex: 0 1 25%;
+    border-top: solid 1px var(--border-internal-color);
+    padding: var(--padding-normal);
+    display: grid;
+    place-content: center;
+}
+
+.waste-collection-icon {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.waste-collection-icon > .waste-icon {
+    width: 30vmin;
+    height: 30vmin;
+    background-image: url('images/recycle_icons.png');
+    background-size: 120vmin;
+    background-repeat: no-repeat;
+    background-position: 20% 0;
+}
+
+.waste-collection-icon > .waste-icon[type="C"] {
+    background-position: 34% 69%;
+}
+
+.waste-collection-icon > .waste-icon[type="P"] {
+    background-position: 6% 39%;
+}
+
+.waste-collection-icon > .waste-icon[type="S"] {
+    background-position: 92% 95%;
+}
+
+.waste-collection-icon > .waste-icon[type="U"] {
+    background-position: 91% 40%;
+}
+
+.waste-collection-icon > .waste-icon[type="V"] {
+    background-position: 63% 7%;
+}
+
