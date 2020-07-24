@@ -11,14 +11,12 @@
  */
 export const getHourlyIconClassName = (hourly, sunrise, sunset, index = 0) => {
     const weather = hourly.weather[index];
-    const hhDate = new Date(hourly.date).getHours();
-    const hhSunrise = new Date(sunrise).getHours();
-    const hhSunset = new Date(sunset).getHours();
+    const date = +((new Date(hourly.date).getTime() / 1000).toFixed());
 
     // https://gist.github.com/tbranyen/62d974681dea8ee0caa1
-    if (hhDate >= hhSunrise && hhDate < hhSunset) {
+    if (date >= sunrise && date < sunset) {
         return `wi wi-owm-day-${weather.id}`;
-    } else if (hhDate >= hhSunset || hhDate < hhSunrise) {
+    } else if (date >= sunset || date < sunrise) {
         return `wi wi-owm-night-${weather.id}`;
     } else {
         return '';
