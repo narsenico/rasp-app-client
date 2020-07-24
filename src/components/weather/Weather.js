@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import { getHourlyIconClassName } from './WeatherIconsHelper';
-import { useInterval, shortTime } from '../../utility';
+import { useCron, shortTime } from '../../utility';
 
 import './Weather.css';
 
@@ -10,12 +10,12 @@ const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
 
 /**
  * Componente che mostra il meteo.
- * TODO: ogni quanto deve aggiornarsi? basta una volta al giorno?
  */
 function Weather() {
     const [forecast, setForecast] = useState();
 
-    useInterval(
+    useCron(
+        '0 */30 * * * *',
         async () => {
             try {
                 const res = await axios.get(
@@ -35,11 +35,7 @@ function Weather() {
                     },
                     items: hourly.slice(1, 5).map((hour) => ({
                         time: shortTime(new Date(hour.date)),
-                        icon: getHourlyIconClassName(
-                            hour,
-                            sunrise,
-                            sunset
-                        ),
+                        icon: getHourlyIconClassName(hour, sunrise, sunset),
                     })),
                 });
                 // TODO: mostrare la situazione peggiore da adesso alle prox 3 ore
@@ -48,8 +44,7 @@ function Weather() {
                 setForecast(null);
             }
         },
-        1000,
-        100000000
+        { runOnInit: true }
     );
 
     return (
