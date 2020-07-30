@@ -51,7 +51,7 @@ function Weather() {
         <div className="weather box">
             {forecast ? (
                 <>
-                    <div className="weather-description box-header text-center place-center text-uppercase text-ellipsis text-2x">
+                    <div className="weather-description marquee box-header text-center place-center text-uppercase text-ellipsis text-2x">
                         {forecast.current.description}
                     </div>
                     <div className="weather-icon place-center">
