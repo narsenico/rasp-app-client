@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useInterval } from '../../utility';
+
+import { useInterval, humanDate, shortTime, longTime } from '../../utility';
 
 import './Calendar.css';
 
@@ -12,6 +13,15 @@ const INTERVAL = 60000;
  */
 function Calendar() {
     const [event, setEvent] = useState();
+    const [time, setTime] = useState();
+
+    useInterval(
+        () => {
+            setTime(longTime());
+        },
+        1000,
+        1000
+    );
 
     useInterval(
         () => {
@@ -21,11 +31,28 @@ function Calendar() {
                         `${SERVER_BASE_URL}/calendar/events`
                     );
                     const events = res.data;
-                    console.log(events);
+                    // console.log(events);
                     if (events.length === 0) {
                         setEvent(null);
                     } else {
-                        setEvent(events[0]);
+                        const {
+                            start,
+                            end,
+                            summary,
+                            description,
+                            location,
+                        } = events[0];
+                        const dtStart = new Date(start);
+                        const dtEnd = new Date(end);
+                        setEvent({
+                            start: `${humanDate(dtStart)} ${shortTime(
+                                dtStart
+                            )}`,
+                            end: `${humanDate(dtEnd)} ${shortTime(dtEnd)}`,
+                            summary,
+                            description,
+                            location,
+                        });
                     }
                 } catch (e) {
                     // TODO: gestire mancata autorizzazione
@@ -39,24 +66,17 @@ function Calendar() {
 
     return (
         <div className="calendar-event">
+            <div className="time">{time}</div>
             {event ? (
                 <>
-                    <div className="calendar-event-start">{event.start}</div>
-                    <div className="calendar-event-end">{event.end}</div>
-                    <div className="calendar-event-summary">
-                        {event.summary}
-                    </div>
-                    <div className="calendar-event-description">
-                        {event.description}
-                    </div>
-                    <div className="calendar-event-location">
-                        {event.location}
-                    </div>
+                    <div className="start">{event.start}</div>
+                    <div className="end">{event.end}</div>
+                    <div className="summary">{event.summary}</div>
+                    <div className="descr">{event.description}</div>
+                    <div className="location">{event.location}</div>
                 </>
             ) : (
-                <div className="calendar-event-summary">
-                    Non hai un cazzo da fare
-                </div>
+                <div className="descr">Non hai un cazzo da fare</div>
             )}
         </div>
     );

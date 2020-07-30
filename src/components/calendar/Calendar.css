@@ -1,0 +1,48 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap';
+
+.calendar-event {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
+    grid-gap: 0 1ch;
+    grid-template-areas:
+        'time start end'
+        'time summary summary'
+        'time descr descr'
+        'time location location';
+    border: solid 1px var(--border-internal-color);
+}
+
+.time {
+    grid-area: time;
+    place-self: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    border-right: solid 1px var(--border-internal-color);
+}
+
+.calendar-event > .start {
+    grid-area: start;
+}
+
+.calendar-event > .end {
+    grid-area: end;
+}
+
+.calendar-event > .summary {
+    grid-area: summary;
+    font-size: 1.5em;
+}
+
+.calendar-event > .descr {
+    grid-area: descr;
+}
+
+.calendar-event > .location {
+    grid-area: location;
+    font-size: 0.7em;
+}
