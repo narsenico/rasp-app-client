@@ -44,7 +44,7 @@ function WasteCollection() {
                 const index =
                     now <= WASTE_COLLECTION_END_TIME && data[0] ? 0 : 1;
                 if (data[index]) {
-                    // data[index].waste = 'CVP';
+                    // data[index].waste = 'S';
                     setWaste({
                         title: humanDate(parseDate(data[index].date)), // TODO: formattare
                         items: data[index].waste.split('').map((wt) => ({
@@ -56,8 +56,8 @@ function WasteCollection() {
                 } else {
                     setWaste({
                         title: 'NULLA',
-                        itmes: []
-                    })
+                        itmes: [],
+                    });
                 }
             } catch (e) {
                 console.error(e);
@@ -67,23 +67,21 @@ function WasteCollection() {
 
     return (
         <div className="waste-collection box">
-            <div className="waste-collection-description box-header text-center place-center text-uppercase text-ellipsis text-2x">
+            <div className="box-header text-center place-center text-uppercase text-ellipsis text-2x">
                 {waste.title}
             </div>
-            <div className="waste-collection-items">
+            <div className="item-container">
                 {waste.items &&
                     waste.items.map((item, index) => (
-                        <div key={index}>
-                            <div
-                                className="waste-collection-icon"
-                            >
+                        <div key={index} className="item">
+                            <div className="descr text-uppercase">
+                                {item.description}
+                            </div>
+                            <div className="icon">
                                 <div
                                     className="waste-icon"
                                     type={item.type}
                                 ></div>
-                            </div>
-                            <div className="waste-collection-descr text-uppercase">
-                                {item.description}
                             </div>
                         </div>
                     ))}
