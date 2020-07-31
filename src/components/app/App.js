@@ -1,21 +1,22 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Calendar from '../calendar/Calendar';
-import Weather from '../weather/Weather';
-import WasteCollection from '../wastecollection/WasteCollection';
-
-import './App.css';
+import Home from '../Home';
+import WasteCollectionEditor from '../WasteCollectionEditor';
 
 function App() {
-    return <div className="app">
-      <main>
-          <WasteCollection />
-          <Weather />
-      </main>
-      <footer>
-        <Calendar />
-      </footer>
-    </div>;
+    return (
+        <Router>
+            <Switch>
+                <Route path="/wastecollectioneditor">
+                    <WasteCollectionEditor />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;

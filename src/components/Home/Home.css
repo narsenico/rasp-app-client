@@ -1,0 +1,22 @@
+.home {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.home > header {
+    padding: var(--padding-normal);
+}
+
+.home > main {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.home > main > * {
+  box-sizing: border-box;
+}
