@@ -1,16 +1,16 @@
 @import './icons/css/weather-icons.css';
 
-.weather-icon {
+.weather-view > .weather-icon {
     font-size: 20vmin;
 }
 
-.weather-items {
+.weather-view > .weather-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
     place-content: end;
 }
 
-.weather-items>div {
+.weather-view > .weather-items>div {
     text-align: center;
     box-sizing: border-box;
     border: solid 1px var(--border-internal-color);

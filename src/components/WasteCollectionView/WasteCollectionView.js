@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { formatDate, shortTime, parseDate, humanDate } from '../../utility';
+import { formatDate, shortTime, parseDate, humanDate } from '#helpers/date';
 
-import './WasteCollection.css';
+import './WasteCollectionView.css';
 
 const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
 // ora di termine ritiro rifiuti
@@ -22,7 +22,7 @@ const WASTE_DESCR = {
  * TODO: deve aggiornarsi dopo l'orario di ritiro rifiuti, verso le 10AM
  * TODO: aggiungere link a editor (importare da waste-collection-calendar)
  */
-function WasteCollection() {
+function WasteCollectionView() {
     const [waste, setWaste] = useState({});
 
     useEffect(() => {
@@ -66,7 +66,7 @@ function WasteCollection() {
     }, []);
 
     return (
-        <div className="waste-collection box">
+        <div className="waste-collection-view box">
             <div className="box-header text-center place-center text-uppercase text-ellipsis text-2x">
                 {waste.title}
             </div>
@@ -90,4 +90,4 @@ function WasteCollection() {
     );
 }
 
-export default WasteCollection;
+export default WasteCollectionView;

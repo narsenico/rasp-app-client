@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Home from '../Home';
-import WasteCollectionEditor from '../WasteCollectionEditor';
+import Home from '#components/Home';
+import WasteCollectionEditor from '#components/WasteCollectionEditor';
 
 function App() {
     return (

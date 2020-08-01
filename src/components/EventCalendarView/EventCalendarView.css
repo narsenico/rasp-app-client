@@ -1,6 +1,6 @@
 @import 'https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap';
 
-.calendar-event {
+.event-calendar-view {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
@@ -13,7 +13,7 @@
     border: solid 1px var(--border-internal-color);
 }
 
-.time {
+.event-calendar-view > .time {
     grid-area: time;
     place-self: center;
     font-family: 'Roboto Mono', monospace;
@@ -25,24 +25,24 @@
     border-right: solid 1px var(--border-internal-color);
 }
 
-.calendar-event > .start {
+.event-calendar-view > .start {
     grid-area: start;
 }
 
-.calendar-event > .end {
+.event-calendar-view > .end {
     grid-area: end;
 }
 
-.calendar-event > .summary {
+.event-calendar-view > .summary {
     grid-area: summary;
     font-size: 1.5em;
 }
 
-.calendar-event > .descr {
+.event-calendar-view > .descr {
     grid-area: descr;
 }
 
-.calendar-event > .location {
+.event-calendar-view > .location {
     grid-area: location;
     font-size: 0.7em;
 }

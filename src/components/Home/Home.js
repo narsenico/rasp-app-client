@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Calendar from '../Calendar';
-import Weather from '../Weather';
-import WasteCollection from '../WasteCollection';
+import EventCalendarView from '#components/EventCalendarView';
+import WeatherView from '#components/WeatherView';
+import WasteCollectionView from '#components/WasteCollectionView';
 
 import './Home.css';
 
@@ -10,11 +10,11 @@ function Home() {
     return (
         <div className="home">
             <main>
-                <WasteCollection />
-                <Weather />
+                <WasteCollectionView />
+                <WeatherView />
             </main>
             <footer>
-                <Calendar />
+                <EventCalendarView />
             </footer>
         </div>
     );

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import { useInterval, humanDate, shortTime, longTime } from '../../utility';
+import { useInterval } from '#hooks';
+import { humanDate, shortTime, longTime } from '#helpers/date';
 
-import './Calendar.css';
+import './EventCalendarView.css';
 
 const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
 const INTERVAL = 60000;
@@ -11,7 +12,7 @@ const INTERVAL = 60000;
 /**
  * Componente che mostra il prossimo evento del calendario.
  */
-function Calendar() {
+function EventCalendarView() {
     const [event, setEvent] = useState();
     const [time, setTime] = useState();
 
@@ -65,7 +66,7 @@ function Calendar() {
     );
 
     return (
-        <div className="calendar-event">
+        <div className="event-calendar-view">
             <div className="time">{time}</div>
             {event ? (
                 <>
@@ -82,4 +83,4 @@ function Calendar() {
     );
 }
 
-export default Calendar;
+export default EventCalendarView;

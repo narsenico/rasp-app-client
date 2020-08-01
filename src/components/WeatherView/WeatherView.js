@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { useCron } from '#hooks';
+import { shortTime } from '#helpers/date';
 import { getHourlyIconClassName } from './WeatherIconsHelper';
-import { useCron, shortTime } from '../../utility';
 
-import './Weather.css';
+import './WeatherView.css';
 
 const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
 
 /**
  * Componente che mostra il meteo.
  */
-function Weather() {
+function WeatherView() {
     const [forecast, setForecast] = useState();
 
     useCron(
@@ -48,7 +49,7 @@ function Weather() {
     );
 
     return (
-        <div className="weather box">
+        <div className="weather-view box">
             {forecast ? (
                 <>
                     <div className="weather-description marquee box-header text-center place-center text-uppercase text-ellipsis text-2x">
@@ -71,4 +72,4 @@ function Weather() {
     );
 }
 
-export default Weather;
+export default WeatherView;
