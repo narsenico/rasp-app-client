@@ -1,0 +1,29 @@
+.message-box {
+    background-color: var(--primary-color-dark);
+    border: solid 1px;
+    border-radius: var(--border-radius);
+    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.38);
+}
+
+.message-box > form > .dialog-icon {
+    text-align: center;
+}
+
+.message-box > form > .dialog-icon > .material-icons {
+    font-size: 3em;
+}
+
+.message-box > form > p {
+    text-align: justify;
+}
+
+.message-box > form > menu {
+    text-align: center;
+    padding: 8px 0 0px 0;
+    margin: 24px 0 0 0;
+    border-top: solid 1px var(--text-color);
+}
+
+.message-box > form > menu > button {
+    margin: 0 4px;
+}
