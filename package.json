@@ -43,7 +43,6 @@
   "_moduleAliases": {
     "#components": "./src/components",
     "#hooks": "./src/hooks",
-    "#utils": "./src/utils",
     "#helpers": "./src/helpers",
     "#api": "./src/api"
   }
