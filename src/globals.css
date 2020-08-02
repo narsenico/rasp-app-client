@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 :root {
     --background-clor: #222;
@@ -6,7 +7,9 @@
     --border-internal-color: #66696f;
 
     --padding-normal: 8px;
+    --margin-normal: 8px;
     --font-size: 22px;
+    --border-radius: 4px;
 }
 
 body {
@@ -64,4 +67,10 @@ body {
 
 .place-center {
     place-self: center;
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
 }
